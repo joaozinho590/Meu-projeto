@@ -1,0 +1,35 @@
+from gpiozero import LED, Button
+from time import sleep
+
+#Configuração dos pinos
+pino_saida = LED(17)
+pino_entrada = Button(18)
+
+def verificar_mudanca():
+    # Imprime no console quando uma mudança é detectada
+    print("Mudança!")
+
+#Configura ações para os eventos no pino de entrada
+pino_entrada.when_pressed = verificar_mudanca  # Quando o botão é pressionado
+pino_entrada.when_released = verificar_mudanca  # Quando o botão é liberado
+
+try:
+    while True:
+        # Ativa o pino de saída
+        pino_saida.on()
+        print("Ligado")
+        sleep(1)  # Espera um segundo
+
+        # Desativa o pino de saída
+        pino_saida.off()
+        print("Desligado")
+        sleep(1)  # Espera um segundo antes da próxima iteração
+
+except KeyboardInterrupt:
+    # Captura o sinal de interrupção para encerrar o programa
+    print("Interrompido")
+
+finally:
+    # Limpeza: Garante que o pino de saída é desativado ao encerrar
+    pino_saida.off()
+    print("Fim")
