@@ -9,6 +9,9 @@ Neste repositório, você encontrará um script Python de teste, projetado para 
 
 Funcionalidades:
 Interação com Hardware: Utilização da biblioteca GPIO Zero para controle de pinos GPIO em uma placa Raspberry Pi.
+
 Controle de Dispositivos: O script controla um LED conectado ao pino GPIO 17 e monitora um botão conectado ao pino GPIO 18.
+
 Detecção de Eventos: O script imprime mensagens no console sempre que o botão é pressionado ou liberado.
+
 Ciclo de Ativação/Desativação: O LED alterna entre ligado e desligado a cada segundo em um loop contínuo.
